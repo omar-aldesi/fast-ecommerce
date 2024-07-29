@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000" ]
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+  db:
+    image: postgres:16.3
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+  alembic:
+    build: .
+    command: [ "alembic", "upgrade", "head" ]
+    depends_on:
+      - db
+    env_file:
+      - .env
+volumes:
+  postgres_data:

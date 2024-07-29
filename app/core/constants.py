@@ -1,0 +1,1 @@
+REFRESH_TOKEN_BLACKLIST_PREFIX = "refresh_tokens_"
