@@ -16,6 +16,9 @@ A robust and scalable e-commerce backend built with FastAPI, featuring real-time
 - 🔔 Real-time notifications via WebSockets
 - 🔄 Background task processing
 - 🐳 Containerized with Docker for easy deployment
+- 🌟 REST api
+- 🌟 Caching System 
+
 
 ## 🛠️ Technologies Used
 
